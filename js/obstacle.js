@@ -8,13 +8,6 @@ class Obstacle {
         this.left = window.innerWidth; 
         this.invincible = false;
 
-        // const invincibleObstacles = ["../images/obstacle4-img.png", "../images/obstacle5-img.png"];
-
-        // if (invincibleObstacles.includes(this.invincible)) {
-        //     this.lives = 0; 
-        //     this.gameOver(); 
-        // }
-
         this.imageArray = [
             "./images/obstacle1-img.png",
             "./images/obstacle2-img.png",
