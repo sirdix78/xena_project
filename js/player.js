@@ -40,8 +40,8 @@ class Player {
       if (this.positionTop < 0) {
         this.positionTop = 0;
       }
-      if (this.positionTop + this.height > 700) {
-        this.positionTop = 700 - this.height;
+      if (this.positionTop + this.height > 1000) {
+        this.positionTop =1000 - this.height;
       }
       this.updatePosition();
     }
