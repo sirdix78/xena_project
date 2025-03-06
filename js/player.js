@@ -40,8 +40,8 @@ class Player {
       if (this.positionTop < 0) {
         this.positionTop = 0;
       }
-      if (this.positionTop + this.height > 450) {
-        this.positionTop = 450 - this.height;
+      if (this.positionTop + this.height > 650) {
+        this.positionTop = 650 - this.height;
       }
       // for laptop screen
       // if (this.positionTop + this.height > 500) {
