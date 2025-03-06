@@ -9,7 +9,7 @@ class Game {
       this.player = new Player(
         this.gameScreen,
         85,
-        350,
+        850,  
         170,
         320,
         "./images/left1-img.png"
