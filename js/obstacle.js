@@ -16,11 +16,11 @@ class Obstacle {
         // }
 
         this.imageArray = [
-            "../images/obstacle1-img.png",
-            "../images/obstacle2-img.png",
-            "../images/obstacle3-img.png",
-            "../images/obstacle4-img.png",
-            "../images/obstacle5-img.png"
+            "images/obstacle1-img.png",
+            "images/obstacle2-img.png",
+            "images/obstacle3-img.png",
+            "images/obstacle4-img.png",
+            "images/obstacle5-img.png"
         ];
         const randomImage = this.imageArray[Math.floor(Math.random() * this.imageArray.length)];
         // Create obstacle element

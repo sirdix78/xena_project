@@ -4,6 +4,7 @@ class Game {
       this.gameScreen = document.getElementById("game-screen");
       this.gameOverScreen = document.getElementById("game-end");
       this.scoreElement = document.getElementById("score");
+      this.highScoresListElement = document.getElementById("high-scores");
       this.livesElement = document.getElementById("lives");
       this.player = new Player(
         this.gameScreen,
@@ -11,13 +12,13 @@ class Game {
         560,
         140,
         280,
-        "../images/left-img.png"
+        "images/left1-img.png"
       );
       this.height = 100;
       this.width = 100;
       this.obstacles = [];
       this.swords = [];
-      this.score = 0;
+      this.score = 1;
       this.lives = 3;
       this.gameIsOver = false;
       this.gameIntervalId = null;
@@ -44,22 +45,21 @@ class Game {
         this.obstacles.push(new Obstacle(this.gameScreen));
       }
    this.update();
-   for (let i = 0; i < obstacles.length; i++) {
-    const currentObstacle = obstacles[i];   
-    // Move the obstacle down
-       currentObstacle.fall();
+   for (let i = 0; i < this.obstacles.length; i++) {
+    const currentObstacle = this.obstacles[i];   
+     // currentObstacle.fall();
     // Check if obstacle collides with the sword
-    if (currentObstacle.didCollide(swords[0])) {
+    if (currentObstacle.didCollide(this.swords[0])) {
       // If obstacle collides with the sword, remove it and reduce life
       currentObstacle.element.remove();
-      obstacles.splice(i, 1);
-      i--; // Adjust the index after removing an element
+      this.obstacles.splice(i, 1);
+      i--; // 
       lives -= 1;
       if (lives <= 0) {
         alert("Game Over!");
         // this.gameOver();
-      }    }
-      //inside the game loop we check if the game is over
+      }    
+    }
       if (this.gameIsOver) {
         this.gameOver();
       }
@@ -136,5 +136,23 @@ class Game {
       this.gameScreen.style.display = "none";
       //show the game over screen
       this.gameOverScreen.style.display = "block";
+
+    //logic for the high scores,  this is with just the scores
+    const scoresInStorage = JSON.parse(localStorage.getItem("high-scores"));
+    if (scoresInStorage) {
+      scoresInStorage.push(this.score);
+      const topThreeScores = scoresInStorage.sort((a, b) => b - a).slice(0, 3);
+      localStorage.setItem("high-scores", JSON.stringify(topThreeScores));
+    } else {
+      localStorage.setItem("high-scores", JSON.stringify([this.score]));
+    }
+    const updatedScoresInStorage = JSON.parse(
+      localStorage.getItem("high-scores")
+    );
+    updatedScoresInStorage.forEach((oneScore) => {
+      const ourLiElement = document.createElement("li");
+      ourLiElement.innerText = oneScore;
+      this.highScoresListElement.appendChild(ourLiElement);
+    });
     }
   }
