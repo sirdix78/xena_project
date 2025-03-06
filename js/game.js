@@ -22,7 +22,7 @@ class Game {
       this.lives = 3;
       this.gameIsOver = false;
       this.gameIntervalId = null;
-      this.gameLoopFrequency = Math.round(900 / 60);
+      this.gameLoopFrequency = Math.round(3000 / 60);
       this.counter = 0;
     }
   

@@ -1,7 +1,7 @@
 class Sword {
     constructor(gameScreen) {
-      this.left = 180;
-      this.bottom = 420;
+      this.left = 200;
+      this.bottom = 490;
       // for laptop screen
       // this.bottom = 400;
       this.width = 100;
