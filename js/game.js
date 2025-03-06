@@ -12,7 +12,7 @@ class Game {
         560,
         140,
         280,
-        "images/left1-img.png"
+        "./images/left1-img.png"
       );
       this.height = 100;
       this.width = 100;
