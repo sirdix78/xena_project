@@ -42,7 +42,18 @@ window.onload = function () {
       ourNewGame.player.directionX = 0;
     } else if (e.code === "ArrowRight") {
       ourNewGame.player.directionX = 0;
+    }else if (e.code === "Space") {
+    if (!ourNewGame.player.isShooting) {
+      const theWarriorLeft = ourNewGame.player.positionLeft;
+      const theWarriorTop = ourNewGame.player.positionTop;
+      ourNewGame.swords.push(new Sword(ourNewGame.gameScreen,
+      theWarriorLeft + 52, theWarriorTop - 50));
+    ourNewGame.player.isShooting = true;
+    setTimeout(() => {
+      ourNewGame.player.isShooting = false;
+    }, 1000);
     }
+   }
   });
   
   //all of my functions here

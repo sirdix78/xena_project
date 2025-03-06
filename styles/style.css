@@ -5,6 +5,7 @@ body {
 
 .logo-img {
     width: 150px;
+    margin: 20px 0px;
 }
 main {
    text-align: center;
@@ -17,8 +18,9 @@ main {
    left: 0;
 }
 .score-block {
-    /* background-color: rgba(0, 0, 0, 0.7); */
+    /* background-color: rgba(0, 0, 0, 0.6); */
     color: white;
+    padding-top: 10px;
 }
 .score-block p, .score-block h2 {
    margin: 0px;
@@ -32,6 +34,8 @@ main {
     text-transform: uppercase;
     border: 2px solid #8a2120;
     border-radius: 7px;
+    font-weight: 800;
+    color: #582217;
 }
 
 #game-screen {
@@ -40,11 +44,11 @@ main {
     padding: 20px 0px;
     /* overflow: hidden; */
     position: relative;
-    background-image: url(../images/testt.webp);
+    background-image: url('../images/bg2.webp');
     background-size: 100% 85%;
     animation:  slide 12s linear infinite;
     background-position: bottom;
-    opacity: 0.9;
+    opacity: 0.8;
   }
 
 @keyframes slide {
@@ -64,10 +68,28 @@ main {
   }
   
   #game-intro {
-      padding: 50px 0px 20px 0px;
+      padding: 80px 0px 20px 0px;
   }
   .game-intro p {
     font-size: 18px;
     font-family: "Verdana";
   }
-  
+  .spin {
+    animation: spin 0.5s linear;
+  }
+  @-moz-keyframes spin {
+    100% {
+      -moz-transform: rotate(360deg);
+    }
+  }
+  @-webkit-keyframes spin {
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+  @keyframes spin {
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
