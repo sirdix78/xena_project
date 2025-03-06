@@ -10,7 +10,7 @@ class Game {
         this.gameScreen,
         85,
         560,
-        180,
+        170,
         320,
         "./images/left1-img.png"
       );
