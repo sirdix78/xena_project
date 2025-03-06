@@ -33,22 +33,17 @@ class Player {
       if (this.positionLeft < 90) {
         this.positionLeft = 90;
       }
-      if (this.positionLeft + this.width > 900) {
-        this.positionLeft = 900 - this.width;
+      if (this.positionLeft + this.width > 1000) {
+        this.positionLeft = 1000 - this.width;
       }
       //not letting the car go up or down off the screen
       if (this.positionTop < 0) {
         this.positionTop = 0;
       }
-      if (this.positionTop + this.height > 850) {
-        this.positionTop = 850 - this.height;
+      if (this.positionTop + this.height > 700) {
+        this.positionTop = 700 - this.height;
       }
-      // for laptop screen
-      // if (this.positionTop + this.height > 500) {
-      //   this.positionTop = 500 - this.height;
-      // }
       this.updatePosition();
-      // console.log("inside the player move method");
     }
     updatePosition() {
       this.element.style.top = `${this.positionTop}px`;

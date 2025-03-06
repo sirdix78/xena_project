@@ -44,27 +44,11 @@ class Game {
       if (this.counter % 160 === 0) {
         this.obstacles.push(new Obstacle(this.gameScreen));
       }
-   this.update();
-   for (let i = 0; i < this.obstacles.length; i++) {
-    const currentObstacle = this.obstacles[i];   
-     // currentObstacle.fall();
-    // Check if obstacle collides with the sword
-    if (currentObstacle.didCollide(this.swords[0])) {
-      // If obstacle collides with the sword, remove it and reduce life
-      currentObstacle.element.remove();
-      this.obstacles.splice(i, 1);
-      i--; // 
-      lives -= 1;
-      if (lives <= 0) {
-        alert("Game Over!");
-        // this.gameOver();
-      }    
-    }
+    this.update();
       if (this.gameIsOver) {
         this.gameOver();
       }
-    }
-  }
+   }
     update() {
       //this moves the player Xena
       this.player.move();
@@ -112,17 +96,13 @@ class Game {
           //remove all of the swords
           this.swords.splice(j, 1);
           j--;
-          currentSword.element.remove();
+            currentSword.element.remove();
         }
       }
-      // for (let i = 0; i < obstacles.length; i++) {
-      //   obstacles[i].fall();
-      // }
     }
     //this is a loop just to move the sword
     for (let k = 0; k < this.swords.length; k++) {
       const currentSword = this.swords[k];
-      // currentSword.move();
       currentSword.updatePosition();
     }
     if (this.gameIsOver) {
@@ -137,22 +117,23 @@ class Game {
       //show the game over screen
       this.gameOverScreen.style.display = "block";
 
-    //logic for the high scores,  this is with just the scores
-    const scoresInStorage = JSON.parse(localStorage.getItem("high-scores"));
-    if (scoresInStorage) {
-      scoresInStorage.push(this.score);
-      const topThreeScores = scoresInStorage.sort((a, b) => b - a).slice(0, 3);
-      localStorage.setItem("high-scores", JSON.stringify(topThreeScores));
-    } else {
-      localStorage.setItem("high-scores", JSON.stringify([this.score]));
-    }
-    const updatedScoresInStorage = JSON.parse(
-      localStorage.getItem("high-scores")
-    );
-    updatedScoresInStorage.forEach((oneScore) => {
-      const ourLiElement = document.createElement("li");
-      ourLiElement.innerText = oneScore;
-      this.highScoresListElement.appendChild(ourLiElement);
-    });
+      //logic for the high scores,  this is with just the scores
+      this.highScoresListElement.innerHTML = '';
+      const scoresInStorage = JSON.parse(localStorage.getItem("high-scores"));
+      if (scoresInStorage) {
+        scoresInStorage.push(this.score);
+        const topThreeScores = scoresInStorage.sort((a, b) => b - a).slice(0, 3);
+        localStorage.setItem("high-scores", JSON.stringify(topThreeScores));
+      } else {
+        localStorage.setItem("high-scores", JSON.stringify([this.score]));
+      }
+      const updatedScoresInStorage = JSON.parse(
+        localStorage.getItem("high-scores")
+      );
+      updatedScoresInStorage.forEach((oneScore) => {
+        const ourLiElement = document.createElement("li");
+        ourLiElement.innerText = oneScore;
+        this.highScoresListElement.appendChild(ourLiElement);
+      });
     }
   }

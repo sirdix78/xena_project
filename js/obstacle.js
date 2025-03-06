@@ -1,6 +1,6 @@
 class Obstacle {
     constructor(gameScreen) {
-        this.possibleYPositions = [50, 100, 150, 200, 250]; 
+        this.possibleYPositions = [270, 150, 180, 200, 250]; 
         this.randomIndex = Math.floor(Math.random() * this.possibleYPositions.length);
         this.bottom = this.possibleYPositions[this.randomIndex];
         this.width = 180;
@@ -35,4 +35,22 @@ class Obstacle {
     updatePosition() {
         this.element.style.left = `${this.left}px`; 
     }
+    didCollide(obstacle) {
+        const playerRect = this.element.getBoundingClientRect();
+        const obstacleRect = obstacle.element.getBoundingClientRect();
+        if (
+          playerRect.left < obstacleRect.right &&
+          playerRect.right > obstacleRect.left &&
+          playerRect.top < obstacleRect.bottom &&
+          playerRect.bottom > obstacleRect.top
+        ) {
+          this.element.classList.add("spin");
+          setTimeout(() => {
+            this.element.classList.remove("spin");
+          }, 750);
+          return true;
+        } else {
+          return false;
+        }
+      }
 }

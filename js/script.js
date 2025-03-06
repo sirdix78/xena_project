@@ -31,7 +31,18 @@ window.onload = function () {
       ourNewGame.player.directionX = -5;
     } else if (event.code === "ArrowRight") {
       ourNewGame.player.directionX = 5;
-    }
+    }else if (event.code === "Space") {
+      const theWarriorLeft = ourNewGame.player.positionLeft;
+      const theWarriorTop = ourNewGame.player.positionTop;
+      ourNewGame.swords.push(new Sword(ourNewGame.gameScreen,
+      theWarriorLeft + 120, theWarriorTop));
+      setTimeout(() => {
+        if (ourNewGame.swords[0]){
+          ourNewGame.swords[0].element.remove();
+          ourNewGame.swords.pop(); 
+        }
+        }, 2000);  
+        }
   });
   window.addEventListener("keyup", (e) => {
     if (e.code === "ArrowUp") {
@@ -43,17 +54,9 @@ window.onload = function () {
     } else if (e.code === "ArrowRight") {
       ourNewGame.player.directionX = 0;
     }else if (e.code === "Space") {
-    if (!ourNewGame.player.isShooting) {
-      const theWarriorLeft = ourNewGame.player.positionLeft;
-      const theWarriorTop = ourNewGame.player.positionTop;
-      ourNewGame.swords.push(new Sword(ourNewGame.gameScreen,
-      theWarriorLeft + 52, theWarriorTop - 50));
-    ourNewGame.player.isShooting = true;
-    setTimeout(() => {
-      ourNewGame.player.isShooting = false;
-    }, 1000);
+      // ourNewGame.swords[0].element.remove();
+      // ourNewGame.swords.pop();
     }
-   }
   });
   
   //all of my functions here
