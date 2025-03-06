@@ -10,8 +10,8 @@ class Game {
         this.gameScreen,
         85,
         560,
-        140,
-        280,
+        180,
+        320,
         "./images/left1-img.png"
       );
       this.height = 100;
@@ -22,7 +22,7 @@ class Game {
       this.lives = 3;
       this.gameIsOver = false;
       this.gameIntervalId = null;
-      this.gameLoopFrequency = Math.round(800 / 60);
+      this.gameLoopFrequency = Math.round(900 / 60);
       this.counter = 0;
     }
   

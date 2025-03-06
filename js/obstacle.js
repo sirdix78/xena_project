@@ -3,8 +3,8 @@ class Obstacle {
         this.possibleYPositions = [50, 100, 150, 200, 250]; 
         this.randomIndex = Math.floor(Math.random() * this.possibleYPositions.length);
         this.bottom = this.possibleYPositions[this.randomIndex];
-        this.width = 155;
-        this.height = 275;
+        this.width = 180;
+        this.height = 300;
         this.left = window.innerWidth; 
         this.invincible = false;
 
