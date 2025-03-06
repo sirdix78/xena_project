@@ -33,8 +33,8 @@ class Player {
       if (this.positionLeft < 90) {
         this.positionLeft = 90;
       }
-      if (this.positionLeft + this.width > 1000) {
-        this.positionLeft = 1000 - this.width;
+      if (this.positionLeft + this.width > 1050) {
+        this.positionLeft = 1050 - this.width;
       }
       //not letting the car go up or down off the screen
       if (this.positionTop < 0) {
