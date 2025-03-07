@@ -9,7 +9,7 @@ class Game {
       this.player = new Player(
         this.gameScreen,
         85,
-        850,  
+        850,  // start of the top of the player
         170,
         320,
         "./images/left1-img.png"
@@ -86,7 +86,7 @@ class Game {
         const currentSword = this.swords[j];
         //every sword has the didCollide method
         if (currentSword.didCollide(currentObstacle)) {
-          let sound = new Audio('../assets/sword-sound.mp3');
+          let sound = new Audio('assets/sword-sound.mp3');
           sound.volume = 0.1;
           sound.play();
           this.obstacles.splice(i, 1);

@@ -41,7 +41,7 @@ window.onload = function () {
           ourNewGame.swords[0].element.remove();
           ourNewGame.swords.pop(); 
         }
-        }, 100000);  
+        }, 3000);  
         }
   });
   window.addEventListener("keyup", (e) => {
